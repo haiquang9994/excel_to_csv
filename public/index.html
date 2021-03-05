@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel To CSV</title>
+</head>
+
+<body>
+    <form action="action.php" method="post" enctype="multipart/form-data" id="form">
+        <div style="margin-bottom: 10px;">
+            <input type="file" id="file" name="file"
+                accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+        </div>
+        <div>
+            <button type="submit" id="btn" disabled>Convert to csv</button>
+        </div>
+    </form>
+    <script>
+        const btn = document.getElementById('btn')
+        const file = document.getElementById('file')
+        document.getElementById('file').addEventListener('change', function () {
+            if (this.files.length > 0) {
+                btn.removeAttribute('disabled')
+            } else {
+                btn.setAttribute('disabled', '')
+            }
+        })
+        document.getElementById('form').addEventListener('submit', function () {
+            setTimeout(() => {
+                file.value = ''
+            })
+        })
+    </script>
+</body>
+
+</html>
